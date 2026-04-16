@@ -1,19 +1,33 @@
 import {Instrumento} from "./instrumentos.ts";
 
-class insDeCorda extends Instrumento {
+export class insDeCorda extends Instrumento {
     numeroCordas: number;
-    Afinação: string;
+    Afinado: boolean;
 
-    constructor(nome: string, anoDeFabricacao: number, material: string, numeroCordas: number, Afinação: string){
+    constructor(nome: string, anoDeFabricacao: number, material: string, numeroCordas: number, Afinado: boolean){
         super(nome, anoDeFabricacao, material);
         this.numeroCordas = numeroCordas;
-        this.Afinação = Afinação;
+        this.Afinado = Afinado;
     }
 
     tocar(){
-        console.log(`VRUMMMM!!! TCHAAAA!!`);
+        if(this.Afinado == true){
+            console.log(`VRUMMMM!!! TCHAAAA!!`)
+        }
+        else{
+            console.log('tututuã')
+        }
+        
     }
     Afinar(){
-        console.log(`${this.nome} afinado!`);
+        if(this.Afinado == true){
+            this.Afinado = false
+            console.log(`${this.nome} está desafinado`)
+        }
+        else{
+            this.Afinado = true
+            console.log(`${this.nome} está afinado!`)
+        }
     }
 }
+

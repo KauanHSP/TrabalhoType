@@ -1,18 +1,30 @@
 import {Instrumento} from "./instrumentos.ts";
 
-class insDePercussao extends Instrumento {
+export class insDePercussao extends Instrumento {
     material: string;
-    afinavel: boolean;
+    afinado: boolean;
 
-    constructor(nome: string, anoDeFabricacao: number, material: string, afinavel: boolean){
+    constructor(nome: string, anoDeFabricacao: number, material: string, afinado: boolean){
         super(nome, anoDeFabricacao, material);
         this.material = material;
-        this.afinavel = afinavel;
+        this.afinado = afinado;
     }
     tocar(){
-        console.log(`TUCCHA TUCHA TUTA!!`);
+        if(this.afinado == true){
+            console.log(`TUCCHA TUCHA TUTA!!`)
+        }
+        else{
+            console.log('pieãããã')
+        }
     }
     Afinar(){
-        console.log(`${this.nome} afinado!`);
+        if(this.afinado == true){
+            this.afinado = false
+            console.log(`${this.nome} está desafinado`)
+        }
+        else{
+            this.afinado = true
+            console.log(`${this.nome} está afinado!`)
+        }
     }
 }

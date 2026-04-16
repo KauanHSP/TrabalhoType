@@ -1,17 +1,32 @@
 import {Instrumento} from "./instrumentos.ts";
 
-class insDeSopro extends Instrumento {
+export class insDeSopro extends Instrumento {
     material: string;
     oitavas: number;
-    constructor(nome: string, anoDeFabricacao: number, material: string, oitavas: number){
+    afinado: boolean
+    constructor(nome: string, anoDeFabricacao: number, material: string, oitavas: number, afinado: boolean){
         super(nome, anoDeFabricacao, material);
         this.material = material;
         this.oitavas = oitavas;
+        this.afinado = afinado;
     }
     tocar(){
-        console.log(`Fuiiuuii!`);
+        if(this.afinado == true){
+            console.log(`Fuiiuuii!`);
+        }
+        else{
+            console.log('úéééehh')
+        }
+        
     }
     Afinar(){
-        console.log(`${this.nome} afinado!`);
+        if(this.afinado == true){
+            this.afinado = false
+            console.log(`${this.nome} está desafinado`)
+        }
+        else{
+            this.afinado = true
+            console.log(`${this.nome} está afinado!`)
+        }
     }
 }
